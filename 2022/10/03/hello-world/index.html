@@ -221,7 +221,7 @@
         <div class="logo-name">厉不厉害你涛哥</div>
         <div class="logo-desc">
             
-            Never really desperate, only the lost of the soul.
+            linta的学习博客
             
         </div>
     </div>
@@ -1155,6 +1155,14 @@ $(function () {
     
 
     <!-- 鼠标星星特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/star.js"><\/script>');
+            }
+        </script>
     
 
      
@@ -1181,8 +1189,6 @@ $(function () {
     })();
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
     
     
     <script async src="/libs/others/busuanzi.pure.mini.js"></script>
