@@ -5,13 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="keywords" content="厉不厉害你涛哥">
-    <meta name="description" content="c++核心编程即面向对象编程
-面向对象由原来的程序等于数据结构+算法转变为对象等于数据结构+算法
-而程序等于对象+对象+…消息
-消息是对对象的控制
-内存分区模型c++程序在执行时，内存分为4大区
-
-代码区：存放函数体的二进制代码，由操作系统">
+    <meta name="description" content="厉不厉害你涛哥">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -486,14 +480,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-10-04
+                    2022-10-05
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2022-09-04
+                    2022-10-05
                 </div>
                 
 
@@ -517,78 +511,9 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="c-核心编程"><a href="#c-核心编程" class="headerlink" title="c++核心编程"></a>c++核心编程</h1><p>即面向对象编程</p>
-<p>面向对象由原来的程序等于数据结构+算法转变为对象等于数据结构+算法</p>
-<p>而程序等于对象+对象+…消息</p>
-<p>消息是对对象的控制</p>
-<h2 id="内存分区模型"><a href="#内存分区模型" class="headerlink" title="内存分区模型"></a>内存分区模型</h2><p>c++程序在执行时，内存分为4大区</p>
-<ol>
-<li>代码区：存放函数体的二进制代码，由操作系统进行管理</li>
-<li>全局区：存放全局变量与静态变量以及常量</li>
-<li>栈区：由编译器自动分配释放，存放函数参数值，局部变量等</li>
-<li>堆区：由程序员分配和释放，若程序员不释放，程序结束时由操作系统回收</li>
-</ol>
-<p>意义：<br>不同区域存放的数据，赋予不同的生命周期，更*灵活</p>
-<h3 id="程序运行前"><a href="#程序运行前" class="headerlink" title="程序运行前"></a>程序运行前</h3><p>程序编译后，生成exe可执行文件，未执行该程序前分为两个区域</p>
-<p><strong>代码区</strong>：<br>存放cpu执行的机器指令（二进制代码）</p>
-<p>​	特点：</p>
-<pre><code>1. 共享：目的在于频繁执行的程序，只要在内存中有一份代码即可
- 2. 只读：目的在于防止程序意外修改了它的指令
-</code></pre>
-<p><strong>全局区</strong></p>
-<p>全局变量与静态变量存放于此</p>
-<p>还包含常量区，有字符串常量与其他常量存放于此</p>
-<p>该区域的数据在程序结束后由操作系统释放</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iomanip&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">//全局变量</span></span><br><span class="line"><span class="comment">//函数体外，g--global </span></span><br><span class="line"><span class="type">int</span> g_a = <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> g_b = <span class="number">10</span>;</span><br><span class="line"> </span><br><span class="line"><span class="type">const</span> <span class="type">int</span> c_g_a = <span class="number">10</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> c_g_b = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//创建普通变量 </span></span><br><span class="line">	<span class="comment">//只要变量写在函数体中，（main也算），就算普通变量 </span></span><br><span class="line">	<span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line">	<span class="type">int</span> b = <span class="number">10</span>; </span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;a地址&quot;</span> &lt;&lt; &amp;a &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;b地址&quot;</span> &lt;&lt; &amp;b &lt;&lt; endl;</span><br><span class="line">	<span class="comment">//a地址0x70fe1c</span></span><br><span class="line">    <span class="comment">//b地址0x70fe18//相差4 </span></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;g_a地址&quot;</span> &lt;&lt; &amp;g_a &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;g_b地址&quot;</span> &lt;&lt; &amp;g_b &lt;&lt; endl;</span><br><span class="line">	<span class="comment">//g_a地址0x472010</span></span><br><span class="line">	<span class="comment">//g_b地址0x472014//相差4</span></span><br><span class="line">	<span class="comment">//然而全局与局部的地址开头部分相差很大，说明两者不在一个内存区 </span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">//静态变量 在普通变量前加static</span></span><br><span class="line">	<span class="type">static</span> <span class="type">int</span> s_a = <span class="number">10</span>;</span><br><span class="line">	<span class="type">static</span> <span class="type">int</span> s_b = <span class="number">10</span>;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;s_a地址&quot;</span> &lt;&lt; &amp;s_a &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;s_b地址&quot;</span> &lt;&lt; &amp;s_b &lt;&lt; endl;</span><br><span class="line">	<span class="comment">//s_a地址0x472018</span></span><br><span class="line">	<span class="comment">//s_b地址0x47201c</span></span><br><span class="line">	<span class="comment">//由此看出静态与全局内存紧挨在一起分配</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">//常量 </span></span><br><span class="line">		<span class="comment">//字符串常量</span></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;字符串常量地址&quot;</span> &lt;&lt; &amp;<span class="string">&quot;hello world&quot;</span> &lt;&lt; endl;</span><br><span class="line">	<span class="comment">//字符串常量地址0x48803b</span></span><br><span class="line">	<span class="comment">//与静态和全局有一定距离，但并不远</span></span><br><span class="line">	</span><br><span class="line">		<span class="comment">//const修饰变量</span></span><br><span class="line">		<span class="comment">//1.const修饰全局变量，全局区 </span></span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;c_g_a地址&quot;</span> &lt;&lt; &amp;c_g_a &lt;&lt; endl;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;c_g_b地址&quot;</span> &lt;&lt; &amp;c_g_b &lt;&lt; endl;</span><br><span class="line">		<span class="comment">//c_g_a地址0x488064</span></span><br><span class="line">		<span class="comment">//c_g_b地址0x488068</span></span><br><span class="line">		<span class="comment">//与字符串常量很近，但还是有一定距离 </span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//2.const修饰局部变量，不在全局区（带局部都不在全局区里）</span></span><br><span class="line">		<span class="type">const</span> <span class="type">int</span> c_l_a = <span class="number">10</span>;<span class="comment">//local </span></span><br><span class="line">		<span class="type">const</span> <span class="type">int</span> c_l_b = <span class="number">10</span>; </span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;c_l_a地址&quot;</span> &lt;&lt; &amp;c_l_a &lt;&lt; endl;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;c_l_b地址&quot;</span> &lt;&lt; &amp;c_l_b &lt;&lt; endl;</span><br><span class="line">		<span class="comment">//c_l_a地址0x70fe14</span></span><br><span class="line">		<span class="comment">//c_l_b地址0x70fe10</span></span><br><span class="line">		</span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> &#125; </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="程序运行后"><a href="#程序运行后" class="headerlink" title="程序运行后"></a>程序运行后</h3><p>​	<strong>栈区</strong>：</p>
-<p>​			由编译器自动分配释放，存放函数参数值，局部变量等</p>
-<p>​			注意：不要返回局部变量的地址，栈区开辟的数据由编译器自动释放</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta"># <span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> * <span class="title">func</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line">	<span class="keyword">return</span> &amp;a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> * p = <span class="built_in">func</span>();</span><br><span class="line">	cout &lt;&lt; *p &lt;&lt; endl;<span class="comment">//[Warning] address of local variable &#x27;a&#x27; returned [-Wreturn-local-addr]</span></span><br><span class="line">	cout &lt;&lt; *p &lt;&lt; endl;<span class="comment">//只保留一次，第二次为乱值 </span></span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><strong>堆区</strong></p>
-<p>new在堆区开辟</p>
-<h3 id="new操作符"><a href="#new操作符" class="headerlink" title="new操作符"></a>new操作符</h3><p>new int [5];&#x2F;&#x2F;开辟整型数组</p>
-<p>new int（100）；&#x2F;&#x2F;开辟一个整型空间，初值为100</p>
-<p>int * p &#x3D; new int [5];&#x2F;&#x2F;new 返回的是指针</p>
-<p>delete []  p；释放p指向的空间即new int [5]；</p>
-<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><h4 id="定义类与对象"><a href="#定义类与对象" class="headerlink" title="定义类与对象"></a>定义类与对象</h4><p>类是对象的抽象，而对象是类的实例</p>
-<p>类与结构体很多性质相似</p>
-<p>类可以看作一种数据类型，而对象就是变量</p>
-<p>形式：</p>
-<p>class 类名：</p>
-<p>{</p>
-<p>​	private：</p>
-<p>​		私有的数据和成员函数；</p>
-<p>​	public：</p>
-<p>​	公有的数据和成员函数；&#x2F;&#x2F;即接口</p>
-<p>}</p>
-<p>private是私有的，public是公有的，默认私有</p>
-<p><strong>类外定义函数是一种好习惯</strong></p>
-<p><strong>格式：返回类型 类名 ：：函数名（参数）</strong>::表示作用域</p>
-<p>对于类中一些简单的成员函数可以用inline将其作为内置函数，减少调用时间，inline写在返回类型前面，就将main函数中的函数调用语句直接替换为函数语句</p>
-<p>一个对象所占用的空间只与其数据成员所占据的空间相关</p>
-<p>成员函数不占用存储空间，不同的对象使用的是同一段代码</p>
-<h4 id="类与对象的使用"><a href="#类与对象的使用" class="headerlink" title="类与对象的使用"></a>类与对象的使用</h4><h5 id="构造函数实现数据成员初始化"><a href="#构造函数实现数据成员初始化" class="headerlink" title="构造函数实现数据成员初始化"></a>构造函数实现数据成员初始化</h5><p>构造函数与类同名，不具有任何类型，不返回任何值，在建立对象时对数据成员赋初值，不能被用户调用</p>
-<p>类名（）</p>
-<p>{</p>
-<p>​	</p>
-<p>}</p>
-<p>可以用一个类对象，初始化另一个类对象，而不调用构造函数。</p>
-<p>带参数的构造函数，在定义对象的时候给出实参</p>
-<p>也可以</p>
-<p>类名 :: 构造函数名（形参1，形参2，…）:成员初始化{}；</p>
-<p>对于数组要在函数体中进行操作</p>
-<p>在声明构造函数时还可以指定默认值</p>
-<h5 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h5><p>是在撤销对象占用的内存前完成一些清理操作</p>
-<p>-类名</p>
-<p>是用户最后一次使用对象后的操作，（释放前），先释放的，先执</p>
-<p>类的时候用**::<strong>，对象的时候用</strong>.**</p>
-<h5 id="指向成员函数的指针"><a href="#指向成员函数的指针" class="headerlink" title="指向成员函数的指针"></a>指向成员函数的指针</h5><p>数据类型名 （类名 :: * 指针变量名 ）（参数表）&#x2F;&#x2F;括号不可省略</p>
-<p>指针变量名 &#x3D; &amp; 类名 :: 成员函数名</p>
-<h5 id="复制构造函数"><a href="#复制构造函数" class="headerlink" title="复制构造函数"></a>复制构造函数</h5><p>类名 对象2（对象1）</p>
+                <hr>
+<p>title: 404<br>date: 2022-01-01 08:08:08<br>type: “404”<br>layout: “404”<br>description: “Oops～，我崩溃了！找不到你想要的页面 :(“</p>
+<hr>
 
                 
             </div>
@@ -615,7 +540,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2022/10/04/c++%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B/">http://example.com/2022/10/04/c++%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B/</a>
+                    <a href="http://example.com/404/index.html">http://example.com/404/index.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -696,66 +621,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/10/05/&&/">
+                <a href="/404/index.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="hexo的个性化配置">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
                         
-                        <span class="card-title">hexo的个性化配置</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            hexo的matery主题的个性化配置
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-05
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/hexo/" class="post-category">
-                                    hexo
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/hexo/">
-                        <span class="chip bg-color">hexo</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/10/03/hello2/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="hello2">
-                        
-                        <span class="card-title">hello2</span>
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -766,7 +643,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-05
                             </span>
                         <span class="publish-author">
                             
@@ -776,6 +653,45 @@
                         </span>
                     </div>
                 </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
+            </div>
+            <div class="card">
+                <a href="/404/index.html">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        
+                        <span class="card-title"></span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            linta
+                            
+                        </span>
+                    </div>
+                </div>
+
                 
             </div>
         </div>
