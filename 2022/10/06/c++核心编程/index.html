@@ -3,6 +3,7 @@
 
 
 <head>
+
     <meta charset="utf-8">
     <meta name="keywords" content="c++内存分区, lintaの小屋">
     <meta name="description" content="c++核心编程即面向对象编程
@@ -26,6 +27,15 @@
     <title>c++内存分区 | lintaの小屋</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
+    <style>
+        body{
+            background-image: url(https://cdn.jsdelivr.net/gh/Tokisaki-Galaxy/res/site/medias/background.jpg);
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            background-attachment:fixed;
+        }
+    </style>
+
 
 
     <!-- bg-cover style     -->
@@ -55,8 +65,10 @@
 
 
     <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
-
-<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="https://dgwlc.gitee.io/luochenblog/live2d-widget/autoload.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
+<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
 
 <body>
@@ -122,12 +134,35 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/about" class="waves-effect waves-light">
+    <a href="/" class="waves-effect waves-light">
+
       
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      <i class="fas fa-address-card" style="zoom: 0.6;"></i>
       
       <span>关于</span>
+      <i class="fas fa-chevron-down" aria-hidden="true" style="zoom: 0.6;"></i>
     </a>
+    <ul class="sub-nav menus_item_child ">
+      
+      <li>
+        <a href="/about">
+          
+          <i class="fas fa-user-circle" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>关于我</span>
+        </a>
+      </li>
+      
+      <li>
+        <a href="/aboutme">
+          
+          <i class="fa fa-user-secret" style="margin-top: -20px; zoom: 0.6;"></i>
+          
+          <span>Another</span>
+        </a>
+      </li>
+      
+    </ul>
     
   </li>
   
@@ -228,12 +263,36 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/about" class="waves-effect waves-light">
+		<a href="javascript:;">
 			
-			    <i class="fa-fw fas fa-user-circle"></i>
+				<i class="fa-fw fas fa-address-card"></i>
 			
 			关于
+			<span class="m-icon"><i class="fas fa-chevron-right"></i></span>
 		</a>
+            <ul  style="background:  ;" >
+              
+                <li>
+
+                  <a href="/about " style="margin-left:75px">
+				  
+				   <i class="fa fas fa-user-circle" style="position: absolute;left:50px" ></i>
+			      
+		          <span>关于我</span>
+                  </a>
+                </li>
+              
+                <li>
+
+                  <a href="/aboutme " style="margin-left:75px">
+				  
+				   <i class="fa fa fa-user-secret" style="position: absolute;left:50px" ></i>
+			      
+		          <span>Another</span>
+                  </a>
+                </li>
+              
+            </ul>
           
         </li>
         
@@ -260,75 +319,12 @@
         </li>
         
         
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
     </ul>
 </div>
 
 
         </div>
 
-        
-            <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewBox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
         
     </nav>
 
@@ -399,11 +395,6 @@
                 
 
                 
-                    <div id="busuanzi_container_page_pv" class="info-break-policy">
-                        <i class="far fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
-                        <span id="busuanzi_value_page_pv"></span>
-                    </div>
-				
             </div>
         </div>
         <hr class="clearfix">
@@ -436,15 +427,90 @@
 <p>全局变量与静态变量存放于此</p>
 <p>还包含常量区，有字符串常量与其他常量存放于此</p>
 <p>该区域的数据在程序结束后由操作系统释放</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># <span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iomanip&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="comment">//全局变量</span></span><br><span class="line"><span class="comment">//函数体外，g--global </span></span><br><span class="line"><span class="type">int</span> g_a = <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> g_b = <span class="number">10</span>;</span><br><span class="line"> </span><br><span class="line"><span class="type">const</span> <span class="type">int</span> c_g_a = <span class="number">10</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> c_g_b = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="comment">//创建普通变量 </span></span><br><span class="line">	<span class="comment">//只要变量写在函数体中，（main也算），就算普通变量 </span></span><br><span class="line">	<span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line">	<span class="type">int</span> b = <span class="number">10</span>; </span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;a地址&quot;</span> &lt;&lt; &amp;a &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;b地址&quot;</span> &lt;&lt; &amp;b &lt;&lt; endl;</span><br><span class="line">	<span class="comment">//a地址0x70fe1c</span></span><br><span class="line">    <span class="comment">//b地址0x70fe18//相差4 </span></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;g_a地址&quot;</span> &lt;&lt; &amp;g_a &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;g_b地址&quot;</span> &lt;&lt; &amp;g_b &lt;&lt; endl;</span><br><span class="line">	<span class="comment">//g_a地址0x472010</span></span><br><span class="line">	<span class="comment">//g_b地址0x472014//相差4</span></span><br><span class="line">	<span class="comment">//然而全局与局部的地址开头部分相差很大，说明两者不在一个内存区 </span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">//静态变量 在普通变量前加static</span></span><br><span class="line">	<span class="type">static</span> <span class="type">int</span> s_a = <span class="number">10</span>;</span><br><span class="line">	<span class="type">static</span> <span class="type">int</span> s_b = <span class="number">10</span>;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;s_a地址&quot;</span> &lt;&lt; &amp;s_a &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;s_b地址&quot;</span> &lt;&lt; &amp;s_b &lt;&lt; endl;</span><br><span class="line">	<span class="comment">//s_a地址0x472018</span></span><br><span class="line">	<span class="comment">//s_b地址0x47201c</span></span><br><span class="line">	<span class="comment">//由此看出静态与全局内存紧挨在一起分配</span></span><br><span class="line">	</span><br><span class="line">	<span class="comment">//常量 </span></span><br><span class="line">		<span class="comment">//字符串常量</span></span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;字符串常量地址&quot;</span> &lt;&lt; &amp;<span class="string">&quot;hello world&quot;</span> &lt;&lt; endl;</span><br><span class="line">	<span class="comment">//字符串常量地址0x48803b</span></span><br><span class="line">	<span class="comment">//与静态和全局有一定距离，但并不远</span></span><br><span class="line">	</span><br><span class="line">		<span class="comment">//const修饰变量</span></span><br><span class="line">		<span class="comment">//1.const修饰全局变量，全局区 </span></span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;c_g_a地址&quot;</span> &lt;&lt; &amp;c_g_a &lt;&lt; endl;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;c_g_b地址&quot;</span> &lt;&lt; &amp;c_g_b &lt;&lt; endl;</span><br><span class="line">		<span class="comment">//c_g_a地址0x488064</span></span><br><span class="line">		<span class="comment">//c_g_b地址0x488068</span></span><br><span class="line">		<span class="comment">//与字符串常量很近，但还是有一定距离 </span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//2.const修饰局部变量，不在全局区（带局部都不在全局区里）</span></span><br><span class="line">		<span class="type">const</span> <span class="type">int</span> c_l_a = <span class="number">10</span>;<span class="comment">//local </span></span><br><span class="line">		<span class="type">const</span> <span class="type">int</span> c_l_b = <span class="number">10</span>; </span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;c_l_a地址&quot;</span> &lt;&lt; &amp;c_l_a &lt;&lt; endl;</span><br><span class="line">		cout &lt;&lt; <span class="string">&quot;c_l_b地址&quot;</span> &lt;&lt; &amp;c_l_b &lt;&lt; endl;</span><br><span class="line">		<span class="comment">//c_l_a地址0x70fe14</span></span><br><span class="line">		<span class="comment">//c_l_b地址0x70fe10</span></span><br><span class="line">		</span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> &#125; </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class=" language-c++"><code class="language-c++"># include <iostream>
+#include <iomanip>
+using namespace std;
 
+//全局变量
+//函数体外，g--global 
+int g_a = 10;
+int g_b = 10;
+ 
+const int c_g_a = 10;
+const int c_g_b = 10;
 
-
+int main()
+&#123;
+    //创建普通变量 
+    //只要变量写在函数体中，（main也算），就算普通变量 
+    int a = 10;
+    int b = 10; 
+    cout << "a地址" << &a << endl;
+    cout << "b地址" << &b << endl;
+    //a地址0x70fe1c
+    //b地址0x70fe18//相差4 
+    cout << "g_a地址" << &g_a << endl;
+    cout << "g_b地址" << &g_b << endl;
+    //g_a地址0x472010
+    //g_b地址0x472014//相差4
+    //然而全局与局部的地址开头部分相差很大，说明两者不在一个内存区 
+    
+    //静态变量 在普通变量前加static
+    static int s_a = 10;
+    static int s_b = 10;
+    cout << "s_a地址" << &s_a << endl;
+    cout << "s_b地址" << &s_b << endl;
+    //s_a地址0x472018
+    //s_b地址0x47201c
+    //由此看出静态与全局内存紧挨在一起分配
+    
+    //常量 
+        //字符串常量
+    cout << "字符串常量地址" << &"hello world" << endl;
+    //字符串常量地址0x48803b
+    //与静态和全局有一定距离，但并不远
+    
+        //const修饰变量
+        //1.const修饰全局变量，全局区 
+        cout << "c_g_a地址" << &c_g_a << endl;
+        cout << "c_g_b地址" << &c_g_b << endl;
+        //c_g_a地址0x488064
+        //c_g_b地址0x488068
+        //与字符串常量很近，但还是有一定距离 
+        
+        //2.const修饰局部变量，不在全局区（带局部都不在全局区里）
+        const int c_l_a = 10;//local 
+        const int c_l_b = 10; 
+        cout << "c_l_a地址" << &c_l_a << endl;
+        cout << "c_l_b地址" << &c_l_b << endl;
+        //c_l_a地址0x70fe14
+        //c_l_b地址0x70fe10
+        
+    system("pause");
+    return 0;
+ &#125; 
+</code></pre>
 <h3 id="程序运行后"><a href="#程序运行后" class="headerlink" title="程序运行后"></a>程序运行后</h3><p>​	<strong>栈区</strong>：</p>
 <p>​			由编译器自动分配释放，存放函数参数值，局部变量等</p>
 <p>​			注意：不要返回局部变量的地址，栈区开辟的数据由编译器自动释放</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"> <span class="meta"># <span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> * <span class="title">func</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> a = <span class="number">10</span>;</span><br><span class="line">	<span class="keyword">return</span> &amp;a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> * p = <span class="built_in">func</span>();</span><br><span class="line">	cout &lt;&lt; *p &lt;&lt; endl;<span class="comment">//[Warning] address of local variable &#x27;a&#x27; returned [-Wreturn-local-addr]</span></span><br><span class="line">	cout &lt;&lt; *p &lt;&lt; endl;<span class="comment">//只保留一次，第二次为乱值 </span></span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<pre class=" language-c++"><code class="language-c++"> # include <iostream>
 
+using namespace std;
+
+int * func()
+&#123;
+    int a = 10;
+    return &a;
+&#125;
+int main()
+&#123;
+    int * p = func();
+    cout << *p << endl;//[Warning] address of local variable 'a' returned [-Wreturn-local-addr]
+    cout << *p << endl;//只保留一次，第二次为乱值 
+    system("pause");
+    return 0;
+&#125;
+</code></pre>
 <p><strong>堆区</strong></p>
 <p>new在堆区开辟</p>
 <h3 id="new操作符"><a href="#new操作符" class="headerlink" title="new操作符"></a>new操作符</h3><p>new int [5];&#x2F;&#x2F;开辟整型数组</p>
@@ -648,13 +714,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/10/03/hello2/">
+                <a href="/2022/10/03/hello-world/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="hello2">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Hello World">
                         
-                        <span class="card-title">hello2</span>
+                        <span class="card-title">Hello World</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -674,6 +740,14 @@
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Hexo/">
+                        <span class="chip bg-color">Hexo</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -866,8 +940,6 @@
             
             
             
-                
-            
             
                 <span id="busuanzi_container_site_pv">
                 &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
@@ -941,7 +1013,7 @@
             <br>
             
         </div>
-        <div class="col s12 m4 l4 social-link social-statis">
+        <div class="col s12 m4 l4 social-link ">
     <a href="https://github.com/lintatata" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
         <i class="fab fa-github"></i>
     </a>
@@ -1125,6 +1197,15 @@ $(function () {
     
 
     
+        
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/sakura.js"><\/script>');
+            }
+        </script>
+    
 
     <!-- 雪花特效 -->
     
@@ -1157,8 +1238,6 @@ $(function () {
 </script>
 
     
-    
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
     
 
     
