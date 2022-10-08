@@ -5,8 +5,17 @@
 <head>
 
     <meta charset="utf-8">
-    <meta name="keywords" content="标签, lintaの小屋">
-    <meta name="description" content="linta的学习博客">
+    <meta name="keywords" content="单向无哑元结点的链表, lintaの小屋">
+    <meta name="description" content="单向无哑元结点
+构造，析构，插入，删除，遍历输出，冒泡排序，选择排序，反转，
+其中，冒泡排序的指针交换值得再看一看
+# include 
+
+using namespace std;
+
+class Node&amp;#123;
+public: 
+  ">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -18,7 +27,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>标签 | lintaの小屋</title>
+    <title>单向无哑元结点的链表 | lintaの小屋</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
     <style>
@@ -324,125 +333,797 @@
 
 </header>
 
-    <div class="bg-cover pd-header about-cover">
-    <div class="container">
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">单向无哑元结点的链表</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
     <div class="row">
-    <div class="col s10 offset-s1 m8 offset-m2 l8 offset-l2">
-        <div class="brand">
-            <div class="title center-align">
-                
-                    subtitle
-                
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E9%93%BE%E8%A1%A8/">
+                                <span class="chip bg-color">链表</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" class="post-category">
+                                数据结构
+                            </a>
+                        
+                    </div>
+                    
+                </div>
             </div>
 
-            <div class="description center-align">
+            <div class="post-info">
                 
-                <span id="subtitle"></span>
-                <script src="/libs/typed/typed.js"></script>
-                <script>
-                    var typed = new Typed("#subtitle", {
-                        strings: [ 
-                            
-                                "从来没有真正的绝境, 只有心灵的迷途",
-                            
-                                "Never really desperate, only the lost of the soul",
-                            
-                        ],
-                        startDelay: 300,
-                        typeSpeed: 100,
-                        loop: true,
-                        backSpeed: 50,
-                        showCursor: true
-                    });
-                </script>
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2022-10-06
+                </div>
+                
+
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
+                    2022-10-08
+                </div>
+                
+
+                
+
+                
+
                 
             </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p>单向无哑元结点</p>
+<p>构造，析构，插入，删除，遍历输出，冒泡排序，选择排序，反转，</p>
+<p>其中，冒泡排序的指针交换值得再看一看</p>
+<pre class=" language-c++"><code class="language-c++"># include <iostream>
+
+using namespace std;
+
+class Node&#123;
+public: 
+    int data;//数据 
+    Node * next;//下一节点地址 
+    Node(const int &d)//构造函数 
+    &#123;
+        data = d;
+        next = 0;
+    &#125;  
+&#125;;
+
+class linklist&#123;
+public:
+//构造函数(无参数)
+linklist()&#123;
+    first = new Node;//头赋为NULL
+    last = 0;//尾赋为NULL
+    size = 0;//链表的规模 
+    
+&#125;
+//参数为数组及其长度
+/*
+linklist(int * a, int len)&#123;
+    size = 0;
+    if (len == 0)
+    &#123;
+        first = 0;
+        last = 0;
+    &#125;
+    else
+    &#123;
+
+        for (int i=0; i<len; ++i)
+        &#123;
+            Node * p = new Node(a[i])
+            if (p == 0)//检查分配是否成功 
+            &#123;
+            cout << "存储分配错误" << endl； 
+            exit(1); 
+            &#125;
+            //若size为0，则令first与last都指向p指向的对象，往后只有last进行变动 
+            if(size == 0)
+            &#123;
+                first = p;
+                last = p;
+            &#125;
+            else
+            &#123;
+                /*此时last仍然是上一个结点的指针，而p指向现在的结点，
+                此步将现在的结点的地址传递给上一个结点的next
+                last->next = p;
+                //执行完此步之后，last指向了现在的结点 
+                last = p; 
+            &#125;
+            size++;
+        &#125;
+    &#125;
+&#125;
+*/ 
+//析构函数 
+~linklist()
+&#123;
+    while (!first)
+    &#123;
+        Node * t = first->next;//暂存first->next指向的下一片空间，再释放 
+        delete first; 
+        first = t;
+    &#125;
+&#125;
+//判空函数 
+int IsEmpty()
+&#123;
+    if (first->next == 0)
+    &#123;
+        return 0;
+    &#125;
+    return 1;
+&#125;
+//遍历函数
+void display()
+&#123;
+    Node * current = first;
+    while (current != NULL)
+    &#123;
+        cout << current->data << " "<< "[" << current << "]";
+        
+        current = current->next;
+    &#125;
+    cout << endl; 
+&#125;
+//插入函数 
+int push(int date)
+&#123;
+    Node * Newnode = new Node(date);
+    Newnode->next = first;
+    first = Newnode;
+    size++;
+    return date; 
+&#125;
+//删除函数
+void Eraser(int d) 
+&#123;
+    Node * current = first;
+    Node * prev = NULL;
+    
+    if (current == NULL)
+    &#123;
+        cout << "无法删除空链表" << endl;
+        return;
+    &#125;
+    while (current->data != d)
+    &#123;
+        prev = current;
+        current = current->next;
+        if(current == NULL)
+        &#123;
+            cout << "删除的值不存在" << endl;
+            return;
+        &#125;
+    &#125;
+    if (prev == NULL)
+    &#123;
+        first = first->next;
+    &#125;
+    else
+    &#123;
+        prev->next = current->next;
+    &#125;
+    delete current;
+    size--;
+&#125;
+//查找函数
+Node * find(int d)
+&#123;
+    Node * current = first;
+    if (current == NULL)
+    &#123;
+        return NULL;
+    &#125;
+    while (current->data != d)
+    &#123;
+        current = current->next;
+        if(current == NULL)
+        &#123;
+            cout << "查找的值不存在" << endl;
+            return NULL;
+        &#125;
+    &#125;
+    return current;
+&#125;
+//冒泡 
+void bbsort()
+&#123;
+    if (first == NULL || first->next == NULL)return;
+    Node * p1 = first;
+    Node * p2;
+    Node * p1pre = 0;
+    Node * tail = 0;//尾指针是最新排好的一位	
+    while (p1 != NULL && first->next != tail)//第二个条件是判断是否只剩两个数了 
+    &#123;
+        p2 = p1->next;
+        while (p2 != tail)
+        &#123;
+            if (p1->data > p2->data)
+            &#123;
+                if (p1pre == NULL)
+                &#123;
+                    first = p2;
+                &#125;
+                else
+                &#123;
+                    p1pre->next = p2;
+                &#125;
+                p1->next = p2->next;
+                p2->next = p1;
+                p1pre = p2;
+                p2 = p1->next;
+            &#125;
+            else
+            &#123;
+                p1pre = p1;
+                p1 = p1->next;
+                p2 = p2->next;
+            &#125;
+            
+        &#125;
+        tail = p1;
+        p1 = first;
+        p1pre = NULL;
+    &#125;
+
+&#125;
+//老师的 
+void RankByNode()//函数功能：对链表内的节点通过交换进行排序 排序方法：从小到大；
+&#123;
+    Node *p1, *p2;  //p1为当前节点，p2为下一个节点 p2=p1->next
+    Node *p1pre = 0; //p1的前驱
+    Node *tail = 0; //用于保存已经排好序的节点位置
+    Node * pHead = first;
+    p1 = pHead;
+    while (p1 != NULL && tail != pHead->next)
+    &#123;
+        p2 = p1->next;
+        while (p2 != tail)
+        &#123;
+            if (p1->data > p2->data)
+            &#123;
+                if (p1pre == NULL)
+                &#123;
+                    pHead = p2;						
+                &#125;
+                else
+                &#123;
+                    p1pre->next = p2;
+                    
+                &#125;
+                p1->next = p2->next;
+                p2->next = p1;
+                p1pre = p2;
+                p2 = p1->next;
+            &#125;
+            else
+            &#123;
+                p1pre = p1;
+                p1 = p1->next;
+                p2 = p2->next;
+            &#125;
+//				LookThrough();
+        &#125;
+
+    //	if (p1->next == p2)
+        tail = p1;
+        //else
+        //	tail = p2;
+
+//		LookThrough();
+        
+        p1 = pHead;
+        p1pre = NULL;
+    &#125;
+    first = pHead;
+&#125;;
+//逆序 
+void reserve()
+&#123;
+    if (first == NULL || first->next == NULL)return;
+    Node * prev = first;
+    Node * cur = prev->next;
+    while (cur != NULL)
+    &#123;
+        Node * temp = cur->next;
+        cur->next = prev;
+        prev = cur;
+        cur = temp;
+    &#125;
+    first->next = NULL;
+    first = prev;
+    
+     
+&#125; 
+//选择排序（升序），指针域交换
+void selectsort()
+&#123;
+    if (first == NULL || first->next == NULL)return;
+    int min = 1000000000;
+    Node * cur = first;
+    Node * p = NULL;//用于记录当前最小值的位置 
+    Node * p2 = NULL;//用于记录当前最小值的前驱 
+    int size = 0;
+    //先换头指针 
+    Node * prev;//前趋 
+    while (cur != NULL)
+    &#123;
+        size++;
+        if (cur->data < min)
+        &#123;
+            min = cur->data;//更新最小值 
+            p = cur;//记录当前 
+            p2 = prev;//记录当前的前驱 
+        &#125;
+        prev = cur;
+        cur = cur->next; 
+    &#125;
+    Node * prev1 = p;//已经排好序的位置的最后一个 
+    Node * prev2 = NULL;//cur的前趋
+    p2->next = p->next;//最小值前驱的下一个是最小值的下一个 
+    p->next = first;//最小值下一个是first 
+    first = p;//头指针指向当前 
+    //换其他的 
+    for (int i=2; i<size; ++i)//遍历size-2次 
+    &#123;
+        cur = prev1->next;//当前是 已经排好序的位置的最后一个 的下一个 
+        prev2 = prev1;//当前的前驱是 已经排好序的位置的最后一个
+        min = 1000000000;//极大数 
+        while (cur != NULL)
+        &#123;
+            if (cur->data< min)
+            &#123;
+                min = cur->data;
+                p = cur;
+                p2 = prev2;
+            &#125;
+            prev2 = cur;
+            cur = cur->next;
+        &#125;
+        p2->next = p->next;//把断掉的地方连起来 
+        Node * temp = prev1->next;//用temp记录 已经排好序的位置的下一个 
+        prev1->next = p;//已经排好序的位置的下一个变成最小值的结点 
+        p->next = temp;//小值的结点链接到temp 
+        prev1 = p;//排好序的后移一位 
+    &#125;
+&#125; 
+private:	
+    Node * first;//or head
+    Node * last;//or end
+    int size;
+    
+&#125;;
+int main() 
+&#123;
+    linklist list;
+    list.display();
+    int f = list.IsEmpty();
+    if (!f)
+    &#123;
+        cout << "链表非空" << endl;
+    &#125;
+    else
+    &#123;
+        cout << "空链表" << endl;
+    &#125;
+    list.Eraser(2);
+    list.push(3);
+    list.display();
+    cout << list.find(4) << endl;
+    cout << list.find(3) << endl;
+    list.Eraser(3);
+    cout << list.find(3) << endl;
+    list.display();
+    list.push(5);
+    list.push(6);
+    list.display();
+    list.Eraser(3);
+    list.Eraser(6);
+    list.display();
+    cout << list.find(5) << endl;
+    list.push(7);
+    list.push(7);
+    list.push(9);
+    list.push(4);
+    list.push(3);
+    list.push(8);
+    list.display();
+//	list.selectsort();
+//	list.display();
+//	list.reserve();
+//	list.display();	
+//	list.RankByNode();
+//	list.display();
+//	list.reserve();
+//	list.display();	
+    list.bbsort(); 
+    list.display();
+    list.~linklist(); 
+    system("pause");
+    return 0;
+&#125;
+/*
+空链表
+无法删除空链表
+3
+查找的值不存在
+0
+0xa414f0
+0
+
+6 5
+删除的值不存在
+5
+0xa414f0
+7 6 2 2 9 5
+2 2 5 6 7 9
+请按任意键继续. . .
+
+
+*/
+</code></pre>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">linta</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://example.com/2022/10/06/%E5%8D%95%E5%90%91%E6%97%A0%E5%93%91%E5%85%83%E7%BB%93%E7%82%B9%E7%9A%84%E9%93%BE%E8%A1%A8/">http://example.com/2022/10/06/%E5%8D%95%E5%90%91%E6%97%A0%E5%93%91%E5%85%83%E7%BB%93%E7%82%B9%E7%9A%84%E9%93%BE%E8%A1%A8/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">linta</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E9%93%BE%E8%A1%A8/">
+                                    <span class="chip bg-color">链表</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2022/10/06/c++%E6%A0%B8%E5%BF%83%E7%BC%96%E7%A8%8B/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="c++内存分区">
+                        
+                        <span class="card-title">c++内存分区</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2022-10-06
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            linta
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/c/">
+                        <span class="chip bg-color">c++</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2022/10/03/hello-world/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="Hello World">
+                        
+                        <span class="card-title">Hello World</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-10-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            linta
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Hexo/">
+                        <span class="chip bg-color">Hexo</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
         </div>
     </div>
 </div>
 
+<!-- TOC 悬浮按钮. -->
 
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
 <script>
-    // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
-    $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
-</script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
 
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
 
-    </div>
-</div>
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
 
-<main class="content">
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
 
-    
-
-<div id="tags" class="container chip-container">
-    <div class="card">
-        <div class="card-content">
-            <div class="tag-title center-align">
-                <i class="fas fa-tags"></i>&nbsp;&nbsp;文章标签
-            </div>
-            <div class="tag-chips">
-                
-                
-                <a href="/tags/c/" title="c++: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="c++" style="background-color: #F9EBEA;">c++
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/Hexo/" title="Hexo: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="Hexo" style="background-color: #F5EEF8;">Hexo
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/tags/%E9%93%BE%E8%A1%A8/" title="链表: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            data-tagname="链表" style="background-color: #D5F5E3;">链表
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-            </div>
-        </div>
-    </div>
-</div>
-
-    
-    <link rel="stylesheet" type="text/css" href="/libs/jqcloud/jqcloud.css">
-<style type="text/css">
-    #tag-wordcloud {
-        width: 100%;
-        height: 300px;
-    }
-</style>
-
-<div class="container" data-aos="fade-up">
-    <div class="card">
-        <div id="tag-wordcloud" class="card-content"></div>
-    </div>
-</div>
-
-<script type="text/javascript" src="/libs/jqcloud/jqcloud-1.0.4.min.js"></script>
-<script type="text/javascript">
-    
-
-    $('#tag-wordcloud').jQCloud([{"text":"c++","weight":1,"link":"/tags/c/"},{"text":"Hexo","weight":1,"link":"/tags/Hexo/"},{"text":"链表","weight":1,"link":"/tags/链表/"}], {
-        autoResize: true
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
     });
 </script>
 
     
 
 </main>
+
+
 
 
     <footer class="page-footer bg-color">

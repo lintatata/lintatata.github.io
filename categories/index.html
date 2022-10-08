@@ -372,221 +372,6 @@
     </div>
 </div>
 
-<style>
-
-/*
-.category:not(:last-child) {
-  margin-bottom: 1rem;
-}
-*/
-.category-item {
-  font-size: 1.25rem;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-}
-.category-subitem {
-  font-size: 1rem;
-  font-weight: bold;
-}
-.category-collapse {
-  margin-left: 1.25rem;
-  width: 100%;
-}
-.category-count {
-  font-size: 0.9rem;
-  font-weight: initial;
-  min-width: 1.3em;
-  line-height: 1.3em;
-  display: flex;
-  align-items: center;
-}
-.category-count i {
-  padding-right: 0.25rem;
-}
-.category-count span {
-  width: 2rem;
-}
-.category-item-action:not(.collapsed) > i {
-  transform: rotate(90deg);
-  transform-origin: center center;
-}
-.category-item-action i {
-  transition: transform 0.3s ease-out;
-  display: inline-block;
-  margin-left: 0.25rem;
-}
-.category-item-action:hover {
-  z-index: 1;
-  color: #38ACDF;
-  text-decoration: none;
-  background-color: #F8F9FA;
-}
-
-
-
-.list-group-item:first-child {
-    border-top-left-radius: .25rem;
-    border-top-right-radius: .25rem;
-}
-
-.category-item {
-    font-size: 1.25rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-}
-.list-group-item {
-    background-color: transparent;
-    border: 0;
-}
-.list-group-item {
-    position: relative;
-    display: block;
-    padding: .75rem 1.25rem;
-    background-color: #fff;
-    /* border: 1px solid rgba(0,0,0,.125); */
-}
-
-#card-list-zzy .list-group-item:hover {
-    color: #38ACDF;
-    background-color: #F8F9FA;
-    /*  border: 1px solid rgba(0,0,0,.125); */
-}
-
-.category-item-action i {
-    transition: transform .3s ease-out;
-    display: inline-block;
-    margin-left: .25rem;
-}
-
-.category-item-action a{
-      display: block;
-      padding: .75rem 1.25rem;
-}
-
-card-categories-list-spcail > div:hover{
-
-  color:#38ACDF;
-  background-color: #F8F9FA;
-}
-
-.fa {
-    font-size: 1rem;
-    line-height: 1;
-}
-.category-count {
-    font-size: .9rem;
-    font-weight: initial;
-    min-width: 1.3em;
-    line-height: 1.3em;
-    display: flex;
-    align-items: center;
-}
-
-
-.category-content{
-   border-left:0px;
-   padding: .75rem 1.25rem;
-}
-
-.category-content a{
-    color: black;
-}
-
-.category-content a:hover{
-    color:#38ACDF;
-    background-color: #F8F9FA;
-    box-shadow:none;
- }
-.category-row {
-
-  border-color: #F8F9FA;;
-  border-bottom:none;
-  box-shadow: none;
-}
-
-#card-list-zzy{
-    position: relative;
-    /* margin-top: -2rem; */
-    transition: background-color .2s ease-in-out;
-    border-radius: .5rem;
-    z-index: 3;
-}
-.collapsible-header{
-
-    boder: none;
-}
-
-.collapsible{
-  box-shadow:none !important;
-  -webkit-box-shadow: none !important;
-  border-left:none !important;
-  border-right:none !important;
-  border-bottom:none !important;
-}
-
-.categories-title{
-    padding-top: 20px;
-    /* padding-bottom: 5px; */
-    margin-bottom: -10px;
-}
-</style>
-
-  
-
-
-
-
-
-
-<div class="container" data-aos="fade-up">
-    <div class="card  card-categories-list-spcail">
-        <div class="categories-title center-align">
-                <i class="fas fa-bookmark"></i>&nbsp;&nbsp; 文章多级分类
-        </div>
-
-        <div class="card-content col s12  m12">
-         <div  id="card-list-zzy" class="container ">
-        <ul class="category-list collapsible expandable"  data-collapsible="expandable">
-          
-          
-  
-
-  
-        </ul>
-       </div>
-    </div>
-</div>   
-</div>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-<script>
-
-
-$('.list-group-item').click(function(){
-
-  if($(this).hasClass('collapsed') ){
-      $(this).removeClass('collapsed');
-
-      //$(this).parent().next().slideDown();
-  }else{
-      $(this).addClass('collapsed');
-      //$(this).parent().next().slideUp();
-
-  }
-
-});
-
-
-var elem = document.querySelector('.collapsible .expandable');
-var instance = M.Collapsible.init(elem, {
-  accordion: false
-});
-
-</script>
-
 <main class="content">
 
     
@@ -599,7 +384,16 @@ var instance = M.Collapsible.init(elem, {
             </div>
             <div class="tag-chips">
                 
-                你目前还没有对文章进行分类.
+                
+                
+                <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="数据结构: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #F9EBEA;">数据结构
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
                 
             </div>
         </div>
@@ -608,9 +402,65 @@ var instance = M.Collapsible.init(elem, {
 
 
     
+    <style type="text/css">
+    #category-radar {
+        width: 100%;
+        height: 360px;
+    }
+</style>
+
+<div class="container" data-aos="fade-up">
+    <div class="card">
+        <div id="category-radar" class="card-content"></div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/libs/echarts/echarts.min.js"></script>
+<script type="text/javascript">
+    let radarChart = echarts.init(document.getElementById('category-radar'));
+
+    
+
+    let option = {
+        title: {
+            left: 'center',
+            text: '文章分类雷达图',
+            textStyle: {
+                fontWeight: 500,
+                fontSize: 22
+            }
+        },
+        tooltip: {},
+        radar: {
+            name: {
+                textStyle: {
+                    color: '#3C4858'
+                }
+            },
+            indicator: [{"name":"数据结构","max":2}],
+            nameGap: 5,
+            center: ['50%','55%'],
+            radius: '66%'
+        },
+        series: [{
+            type: 'radar',
+            color: ['#3ecf8e'],
+            itemStyle: {normal: {areaStyle: {type: 'default'}}},
+            data : [
+                {
+                    value : [1],
+                    name : '文章分类数量'
+                }
+            ]
+        }]
+    };
+
+    radarChart.setOption(option);
+</script>
+
+    
 
 </main>
-
 
     <footer class="page-footer bg-color">
     
