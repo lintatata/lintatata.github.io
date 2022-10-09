@@ -4,7 +4,7 @@
 
 <head>
 
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     <meta name="keywords" content="c++内存分区, lintaの小屋">
     <meta name="description" content="c++核心编程即面向对象编程
 面向对象由原来的程序等于数据结构+算法转变为对象等于数据结构+算法
@@ -68,11 +68,12 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
     <script src="https://dgwlc.gitee.io/luochenblog/live2d-widget/autoload.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css"/>
-<meta name="generator" content="Hexo 6.3.0"><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
+<meta name="generator" content="Hexo 6.3.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css">
+<link rel="stylesheet" href="/css/prism-line-numbers.css" type="text/css"></head>
 
 
 <body>
-    <header class="navbar-fixed">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="navbar-fixed">
     <nav id="headNav" class="bg-color nav-transparent">
         <div id="navContainer" class="nav-wrapper container">
             <div class="brand-logo">
@@ -367,6 +368,10 @@
                                 <span class="chip bg-color">c++</span>
                             </a>
                         
+                            <a href="/tags/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/">
+                                <span class="chip bg-color">内存分配</span>
+                            </a>
+                        
                     </div>
                     
                 </div>
@@ -427,90 +432,15 @@
 <p>全局变量与静态变量存放于此</p>
 <p>还包含常量区，有字符串常量与其他常量存放于此</p>
 <p>该区域的数据在程序结束后由操作系统释放</p>
-<pre class=" language-c++"><code class="language-c++"># include <iostream>
-#include <iomanip>
-using namespace std;
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta"># <span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iomanip&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-comment">//全局变量</span><br><span class="hljs-comment">//函数体外，g--global </span><br><span class="hljs-type">int</span> g_a = <span class="hljs-number">10</span>;<br><span class="hljs-type">int</span> g_b = <span class="hljs-number">10</span>;<br> <br><span class="hljs-type">const</span> <span class="hljs-type">int</span> c_g_a = <span class="hljs-number">10</span>;<br><span class="hljs-type">const</span> <span class="hljs-type">int</span> c_g_b = <span class="hljs-number">10</span>;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-comment">//创建普通变量 </span><br>    <span class="hljs-comment">//只要变量写在函数体中，（main也算），就算普通变量 </span><br>    <span class="hljs-type">int</span> a = <span class="hljs-number">10</span>;<br>    <span class="hljs-type">int</span> b = <span class="hljs-number">10</span>; <br>    cout &lt;&lt; <span class="hljs-string">&quot;a地址&quot;</span> &lt;&lt; &amp;a &lt;&lt; endl;<br>    cout &lt;&lt; <span class="hljs-string">&quot;b地址&quot;</span> &lt;&lt; &amp;b &lt;&lt; endl;<br>    <span class="hljs-comment">//a地址0x70fe1c</span><br>    <span class="hljs-comment">//b地址0x70fe18//相差4 </span><br>    cout &lt;&lt; <span class="hljs-string">&quot;g_a地址&quot;</span> &lt;&lt; &amp;g_a &lt;&lt; endl;<br>    cout &lt;&lt; <span class="hljs-string">&quot;g_b地址&quot;</span> &lt;&lt; &amp;g_b &lt;&lt; endl;<br>    <span class="hljs-comment">//g_a地址0x472010</span><br>    <span class="hljs-comment">//g_b地址0x472014//相差4</span><br>    <span class="hljs-comment">//然而全局与局部的地址开头部分相差很大，说明两者不在一个内存区 </span><br>    <br>    <span class="hljs-comment">//静态变量 在普通变量前加static</span><br>    <span class="hljs-type">static</span> <span class="hljs-type">int</span> s_a = <span class="hljs-number">10</span>;<br>    <span class="hljs-type">static</span> <span class="hljs-type">int</span> s_b = <span class="hljs-number">10</span>;<br>    cout &lt;&lt; <span class="hljs-string">&quot;s_a地址&quot;</span> &lt;&lt; &amp;s_a &lt;&lt; endl;<br>    cout &lt;&lt; <span class="hljs-string">&quot;s_b地址&quot;</span> &lt;&lt; &amp;s_b &lt;&lt; endl;<br>    <span class="hljs-comment">//s_a地址0x472018</span><br>    <span class="hljs-comment">//s_b地址0x47201c</span><br>    <span class="hljs-comment">//由此看出静态与全局内存紧挨在一起分配</span><br>    <br>    <span class="hljs-comment">//常量 </span><br>        <span class="hljs-comment">//字符串常量</span><br>    cout &lt;&lt; <span class="hljs-string">&quot;字符串常量地址&quot;</span> &lt;&lt; &amp;<span class="hljs-string">&quot;hello world&quot;</span> &lt;&lt; endl;<br>    <span class="hljs-comment">//字符串常量地址0x48803b</span><br>    <span class="hljs-comment">//与静态和全局有一定距离，但并不远</span><br>    <br>        <span class="hljs-comment">//const修饰变量</span><br>        <span class="hljs-comment">//1.const修饰全局变量，全局区 </span><br>        cout &lt;&lt; <span class="hljs-string">&quot;c_g_a地址&quot;</span> &lt;&lt; &amp;c_g_a &lt;&lt; endl;<br>        cout &lt;&lt; <span class="hljs-string">&quot;c_g_b地址&quot;</span> &lt;&lt; &amp;c_g_b &lt;&lt; endl;<br>        <span class="hljs-comment">//c_g_a地址0x488064</span><br>        <span class="hljs-comment">//c_g_b地址0x488068</span><br>        <span class="hljs-comment">//与字符串常量很近，但还是有一定距离 </span><br>        <br>        <span class="hljs-comment">//2.const修饰局部变量，不在全局区（带局部都不在全局区里）</span><br>        <span class="hljs-type">const</span> <span class="hljs-type">int</span> c_l_a = <span class="hljs-number">10</span>;<span class="hljs-comment">//local </span><br>        <span class="hljs-type">const</span> <span class="hljs-type">int</span> c_l_b = <span class="hljs-number">10</span>; <br>        cout &lt;&lt; <span class="hljs-string">&quot;c_l_a地址&quot;</span> &lt;&lt; &amp;c_l_a &lt;&lt; endl;<br>        cout &lt;&lt; <span class="hljs-string">&quot;c_l_b地址&quot;</span> &lt;&lt; &amp;c_l_b &lt;&lt; endl;<br>        <span class="hljs-comment">//c_l_a地址0x70fe14</span><br>        <span class="hljs-comment">//c_l_b地址0x70fe10</span><br>        <br>    <span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;pause&quot;</span>);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br> &#125; <br><br></code></pre></td></tr></table></figure>
 
-//全局变量
-//函数体外，g--global 
-int g_a = 10;
-int g_b = 10;
- 
-const int c_g_a = 10;
-const int c_g_b = 10;
 
-int main()
-&#123;
-    //创建普通变量 
-    //只要变量写在函数体中，（main也算），就算普通变量 
-    int a = 10;
-    int b = 10; 
-    cout << "a地址" << &a << endl;
-    cout << "b地址" << &b << endl;
-    //a地址0x70fe1c
-    //b地址0x70fe18//相差4 
-    cout << "g_a地址" << &g_a << endl;
-    cout << "g_b地址" << &g_b << endl;
-    //g_a地址0x472010
-    //g_b地址0x472014//相差4
-    //然而全局与局部的地址开头部分相差很大，说明两者不在一个内存区 
-    
-    //静态变量 在普通变量前加static
-    static int s_a = 10;
-    static int s_b = 10;
-    cout << "s_a地址" << &s_a << endl;
-    cout << "s_b地址" << &s_b << endl;
-    //s_a地址0x472018
-    //s_b地址0x47201c
-    //由此看出静态与全局内存紧挨在一起分配
-    
-    //常量 
-        //字符串常量
-    cout << "字符串常量地址" << &"hello world" << endl;
-    //字符串常量地址0x48803b
-    //与静态和全局有一定距离，但并不远
-    
-        //const修饰变量
-        //1.const修饰全局变量，全局区 
-        cout << "c_g_a地址" << &c_g_a << endl;
-        cout << "c_g_b地址" << &c_g_b << endl;
-        //c_g_a地址0x488064
-        //c_g_b地址0x488068
-        //与字符串常量很近，但还是有一定距离 
-        
-        //2.const修饰局部变量，不在全局区（带局部都不在全局区里）
-        const int c_l_a = 10;//local 
-        const int c_l_b = 10; 
-        cout << "c_l_a地址" << &c_l_a << endl;
-        cout << "c_l_b地址" << &c_l_b << endl;
-        //c_l_a地址0x70fe14
-        //c_l_b地址0x70fe10
-        
-    system("pause");
-    return 0;
- &#125; 
-</code></pre>
+
 <h3 id="程序运行后"><a href="#程序运行后" class="headerlink" title="程序运行后"></a>程序运行后</h3><p>​	<strong>栈区</strong>：</p>
 <p>​			由编译器自动分配释放，存放函数参数值，局部变量等</p>
 <p>​			注意：不要返回局部变量的地址，栈区开辟的数据由编译器自动释放</p>
-<pre class=" language-c++"><code class="language-c++"> # include <iostream>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs c++"> <span class="hljs-meta"># <span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std;<br><br><span class="hljs-function"><span class="hljs-type">int</span> * <span class="hljs-title">func</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">int</span> a = <span class="hljs-number">10</span>;<br>    <span class="hljs-keyword">return</span> &amp;a;<br>&#125;<br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-type">int</span> * p = <span class="hljs-built_in">func</span>();<br>    cout &lt;&lt; *p &lt;&lt; endl;<span class="hljs-comment">//[Warning] address of local variable &#x27;a&#x27; returned [-Wreturn-local-addr]</span><br>    cout &lt;&lt; *p &lt;&lt; endl;<span class="hljs-comment">//只保留一次，第二次为乱值 </span><br>    <span class="hljs-built_in">system</span>(<span class="hljs-string">&quot;pause&quot;</span>);<br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
-using namespace std;
-
-int * func()
-&#123;
-    int a = 10;
-    return &a;
-&#125;
-int main()
-&#123;
-    int * p = func();
-    cout << *p << endl;//[Warning] address of local variable 'a' returned [-Wreturn-local-addr]
-    cout << *p << endl;//只保留一次，第二次为乱值 
-    system("pause");
-    return 0;
-&#125;
-</code></pre>
 <p><strong>堆区</strong></p>
 <p>new在堆区开辟</p>
 <h3 id="new操作符"><a href="#new操作符" class="headerlink" title="new操作符"></a>new操作符</h3><p>new int [5];&#x2F;&#x2F;开辟整型数组</p>
@@ -620,6 +550,10 @@ int main()
                                     <span class="chip bg-color">c++</span>
                                 </a>
                             
+                                <a href="/tags/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/">
+                                    <span class="chip bg-color">内存分配</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -701,6 +635,10 @@ int main()
                     
                     <a href="/tags/c/">
                         <span class="chip bg-color">c++</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/">
+                        <span class="chip bg-color">内存分配</span>
                     </a>
                     
                 </div>
@@ -1261,7 +1199,7 @@ $(function () {
     
   <!-- 动态标题 -->
     <script type="text/javascript"> var OriginTitile = document.title, st; 
-        document.addEventListener("visibilitychange", function () { document.hidden ? (document.title = "Σ(っ °Д °;)っ喔哟，崩溃啦！", clearTimeout(st)) : (document.title = "φ(゜▽゜*)♪咦，又好了！", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) }) </script>
+        document.addEventListener("visibilitychange", function () { document.hidden ? (document.title = "Σ(っ °Д °;)っ喔哟，崩溃啦！", clearTimeout(st)) : (document.title = "φ(゜▽゜*)♪咦，又好了！", st = setTimeout(function () { document.title = OriginTitile }, 3e3)) }) </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
         
 
 </body>
