@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>二分查找应用</title>
+      <link href="/2022/10/09/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/"/>
+      <url>/2022/10/09/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE/</url>
+      
+        <content type="html"><![CDATA[<h1 id="二分查找应用"><a href="#二分查找应用" class="headerlink" title="二分查找应用"></a>二分查找应用</h1><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p><img src="C:\Users\lintao\AppData\Roaming\Typora\typora-user-images\1665321321557.png" alt="1665321321557"></p><pre class=" language-c++"><code class="language-c++">int BinarySearch(int a[], int size, int p)&#123;    int L = 0; //查找区间左端点    int R = size-1; //查找区间右端点    while (L <= R)    &#123;        int mid = L + (R-L) / 2;//正中元素的下标，总个数偶数时是第一个        if (p == a[mid])        &#123;            return mid;        &#125;        else if (p > mid)        &#123;            L = mid + 1;//设置新左端点        &#125;        else            R = mid - 1;//设置新右端点    &#125;    return -1; //返回不存在的下标&#125;//复杂度是log(n)</code></pre><p><img src="C:\Users\lintao\AppData\Roaming\Typora\typora-user-images\1665323654831.png" alt="1665323654831"></p><pre class=" language-c++"><code class="language-c++">int LowerBound(int a[],int size, int p)&#123;    int L = 0;    int R = size - 1;    int lastPos = -1;//最近一次更新    while (L <= R)    &#123;        int mid = L + (L-R) / 2;        if (a[mid] >= p)        &#123;            R = mid - 1;        &#125;        else        &#123;            lastPos = mid;            L = mid + 1;        &#125;    &#125;    return lastPos;&#125;</code></pre><p>注意：数组里必须是排好序的元素</p><p><img src="C:\Users\lintao\AppData\Roaming\Typora\typora-user-images\1665324365222.png" alt="1665324365222"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 二分 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>二分查找应用</title>
+      <link href="/2022/10/09/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E5%BA%94%E7%94%A8-1/"/>
+      <url>/2022/10/09/%E4%BA%8C%E5%88%86%E6%9F%A5%E6%89%BE%E5%BA%94%E7%94%A8-1/</url>
+      
+        <content type="html"><![CDATA[<h1 id="二分查找应用"><a href="#二分查找应用" class="headerlink" title="二分查找应用"></a>二分查找应用</h1><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p><img src="C:\Users\lintao\AppData\Roaming\Typora\typora-user-images\1665321321557.png" alt="1665321321557"></p><pre class=" language-c++"><code class="language-c++">int BinarySearch(int a[], int size, int p)&#123;    int L = 0; //查找区间左端点    int R = size-1; //查找区间右端点    while (L <= R)    &#123;        int mid = L + (R-L) / 2;//正中元素的下标，总个数偶数时是第一个        if (p == a[mid])        &#123;            return mid;        &#125;        else if (p > mid)        &#123;            L = mid + 1;//设置新左端点        &#125;        else            R = mid - 1;//设置新右端点    &#125;    return -1; //返回不存在的下标&#125;//复杂度是log(n)</code></pre><p><img src="C:\Users\lintao\AppData\Roaming\Typora\typora-user-images\1665323654831.png" alt="1665323654831"></p><pre class=" language-c++"><code class="language-c++">int LowerBound(int a[],int size, int p)&#123;    int L = 0;    int R = size - 1;    int lastPos = -1;//最近一次更新    while (L <= R)    &#123;        int mid = L + (L-R) / 2;        if (a[mid] >= p)        &#123;            R = mid - 1;        &#125;        else        &#123;            lastPos = mid;            L = mid + 1;        &#125;    &#125;    return lastPos;&#125;</code></pre><p>注意：数组里必须是排好序的元素</p><p><img src="C:\Users\lintao\AppData\Roaming\Typora\typora-user-images\1665324365222.png" alt="1665324365222"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 二分 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>向量实现</title>
       <link href="/2022/10/09/%E5%90%91%E9%87%8F%E5%AE%9E%E7%8E%B0/"/>
       <url>/2022/10/09/%E5%90%91%E9%87%8F%E5%AE%9E%E7%8E%B0/</url>
